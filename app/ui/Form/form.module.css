@@ -1,13 +1,15 @@
 .form {
-  width: 100% !important;
   background-color: rgb(167, 158, 158);
   display: flex;
   justify-content: center;
   padding: auto;
   height: 100%;
+  max-width: 100%;
+  width: 100vw;
+  
 }
 .input {
-  flex: 10;
+  flex: 5;
   border: none;
   outline: none;
   padding: 25px;

@@ -56,6 +56,13 @@ body {
   letter-spacing: 1px;
   font-weight: 400;
 }
+.form-container {
+  width: 60%;
+  height: 8vh;
+  display: flex;
+  bottom: 0;
+  justify-content: center;
+}
 @media only screen and (max-width: 880px) {
   .chat-container {
     width: 100%;
@@ -63,12 +70,4 @@ body {
   .form-container {
     width: 100%;
   }
-}
-.form-container {
-  width: 60%;
-  margin: 20px 0;
-  height: 8vh;
-  display: flex;
-  bottom: 0;
-  justify-content: center;
 }

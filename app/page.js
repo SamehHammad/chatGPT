@@ -74,7 +74,6 @@ export default function Home() {
           : message && <Loading />}
       </div>
       <div className="form-container">
-        {/* Pass the handleValue function and inputRef to the Form component */}
         <Form handleValue={handleValue} inputRef={inputRef} />
       </div>
     </>
