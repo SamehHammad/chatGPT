@@ -23,7 +23,7 @@ export default function Home() {
 
       const headers = {
         Authorization:
-          "Bearer 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",
+          "Bearer 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",
       };
 
       try {

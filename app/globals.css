@@ -2,28 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: rgb(39, 32, 32);
+  background: linear-gradient(to bottom, transparent, grey) teal;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,14 +56,19 @@ body {
   letter-spacing: 1px;
   font-weight: 400;
 }
-
+@media only screen and (max-width: 880px) {
+  .chat-container {
+    width: 100%;
+  }
+  .form-container {
+    width: 100%;
+  }
+}
 .form-container {
   width: 60%;
   margin: 20px 0;
   height: 8vh;
   display: flex;
-  position: fixed;
   bottom: 0;
   justify-content: center;
-  background-color: transparent;
 }
