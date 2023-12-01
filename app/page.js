@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import axios from "axios";
+import axios from '../axios';
 import "./globals.css";
 import Form from "./ui/Form/Form";
 import Loading from "./ui/Loading/Loading";
