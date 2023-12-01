@@ -1,42 +1,55 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import "./globals.css";
-import Messages from "./ui/Messages/Messages";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import "./globals.css";
 import Form from "./ui/Form/Form";
-import Reply from "./ui/Reply/Reply";
+import Loading from "./ui/Loading/Loading";
 
 export default function Home() {
   const inputRef = useRef();
+
   const [message, setMessage] = useState("");
+
+  const [messages, setMessages] = useState([]);
+
   const [reply, setReply] = useState("");
+
   useEffect(() => {
     const fetchMessage = async () => {
       const body = {
         model: "gpt-3.5-turbo",
         messages: [{ role: "user", content: message }],
       };
+
       const headers = {
         Authorization:
-          "Bearer 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",
+          "Bearer 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",
       };
-      try {
-        const response = await axios.post(
-          "https://api.openai.com/v1/chat/completions",
 
-          body,
-          { headers: headers }
-        );
-        const reply = response.data.choices[0].message.content;
-        setReply(reply);
-        console.log(reply);
+      try {
+        if (message) {
+          const response = await axios.post(
+            "https://api.openai.com/v1/chat/completions",
+            body,
+            { headers: headers }
+          );
+
+          const chatReply = response.data.choices[0].message.content;
+          setReply(chatReply);
+
+          setMessages((prevMessages) => [
+            ...prevMessages,
+            { msg: message, rpl: chatReply },
+          ]);
+        }
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     };
 
     fetchMessage();
   }, [message]);
+
   const handleValue = (e) => {
     e.preventDefault();
     const inputValue = inputRef.current.value;
@@ -45,14 +58,25 @@ export default function Home() {
   };
 
   return (
-    <main className="main">
-      <div className="container">
-        <div className="message-area">
-          {message && <Messages message={message} />}{" "}
-        </div>
-        <div className="reply">{reply && <Reply reply={reply} />} </div>
+    <>
+      <div className="chat-container">
+        { reply
+          ? messages.map((m, index) => (
+              <>
+                <div className="message" key={index}>
+                  <span>{m.msg}</span>
+                </div>
+                <div className="reply" key={index}>
+                  <span>{m.rpl}</span>
+                </div>
+              </>
+            ))
+          : message && <Loading />}
+      </div>
+      <div className="form-container">
+        {/* Pass the handleValue function and inputRef to the Form component */}
         <Form handleValue={handleValue} inputRef={inputRef} />
       </div>
-    </main>
+    </>
   );
 }

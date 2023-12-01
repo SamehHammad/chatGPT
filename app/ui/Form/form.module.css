@@ -1,0 +1,27 @@
+.form {
+  width: 100% !important;
+  background-color: rgb(167, 158, 158);
+  display: flex;
+  justify-content: center;
+  padding: auto;
+  height: 100%;
+}
+.input {
+  flex: 10;
+  border: none;
+  outline: none;
+  padding: 25px;
+  border-radius: 10px;
+  font-size: 20px;
+  margin: 10px 20px;
+}
+.btn {
+  flex: 1;
+  text-align: left;
+  font-size: 35px;
+  color: rgb(56, 7, 52);
+}
+.btn:hover {
+  font-size: 38px;
+  color: rgb(161, 44, 152);
+}

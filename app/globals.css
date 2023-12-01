@@ -24,58 +24,65 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
-.container {
-  display: flex;
-  width: 85%;
-  height: 100vh;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-}
-.message-area {
-  position: relative;
-  flex: 1;
-  width: 70%;
-}
-.reply {
-  position: relative;
-  flex: 3;
-  width: 70%;
-}
-
-form {
-  flex: 1;
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  position: fixed;
-  bottom: 20px;
-  overflow: hidden;
+  flex-direction: column;
 }
-input {
-  width: 50%;
-  height: 50px;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  padding: 5px 20px;
-  font-size: 16px;
-  margin: 10px 0;
-  color: white;
-  background: rgb(143, 139, 139);
-  transition: all 0.2s ease-in-out;
+/* style.css */
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+  overflow-y: scroll;
+
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  height: 90vh;
 }
-input::placeholder {
-  color: rgb(1, 12, 22);
+
+.message {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: rgba(4, 4, 36, 0.596);
+  border-radius: 10px;
+  width: fit-content;
+  text-align: right;
+  margin-left: auto;
+  border-radius: 10px 0 25px 10px;
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 400;
 }
-button {
-  width: 100px;
-  height: 50px;
-  border-radius: 5px;
-  background-color: rgb(39, 9, 33) !important;
-  color: aliceblue;
+
+.reply {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  width: fit-content;
+  text-align: left;
+  margin-right: auto;
+  border-radius: 0 10px 10px 25px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+.form-container {
+  width: 60%;
+  margin: 20px 0;
+  height: 8vh;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  justify-content: center;
+  background-color: transparent;
 }
