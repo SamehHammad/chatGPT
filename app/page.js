@@ -23,13 +23,13 @@ export default function Home() {
       };
 
       const headers = {
-        Authorization: `${process.env.API_KEY}`,
+        Authorization: `Bearer ${process.env.API_KEY}`,
       };
 
       try {
         if (message) {
           const response = await axios.post(
-            "https://api.openai.com/v1/chat/completions",
+            `${process.env.BASE_URL}`,
             body,
             { headers: headers }
           );
@@ -46,7 +46,6 @@ export default function Home() {
         console.error(err);
       }
     };
-console.log(process.env);
     fetchMessage();
   }, [message]);
 
@@ -60,20 +59,36 @@ console.log(process.env);
   return (
     <>
       <div className="chat-container">
-        {reply
-          ? messages.map((m, index) => (
-              <>
-              <div className="message" key={index}>
-                <Image className="user" src={"/user.png"}/>
-                  <span>{m.msg}</span>
-                </div>
-                <div className="reply" key={index}>
-                <Image className="user" src={"/robot.jpg"} />
-                  <span>{m.rpl}</span>
-                </div>
-              </>
-            ))
-          : message && <Loading />}
+        {messages.map((m, index) => (
+          <>
+            <div className="user-m" key={index}>
+              <div className="message">
+                <span>{m.msg}</span>
+              </div>
+              <div className="user">
+                <Image
+                  className="user-img"
+                  src={"/user.png"}
+                  width={40}
+                  height={40}
+                />
+              </div>
+            </div>
+            <div className="robot-m" key={index}>
+              <div className="robot">
+                <Image
+                  className="robot-img"
+                  src={"/robot.jpg"}
+                  width={40}
+                  height={40}
+                />
+              </div>
+              <div className="reply">
+                <span>{m.rpl}</span>
+              </div>
+            </div>
+          </>
+        ))}
       </div>
       <div className="form-container">
         <Form handleValue={handleValue} inputRef={inputRef} />

@@ -63,6 +63,35 @@ body {
   bottom: 0;
   justify-content: center;
 }
+.user-m{
+  display: flex;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  width: fit-content;
+  text-align: right;
+  margin-left: auto;
+
+}
+.robot-m{
+  display: flex;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: left;
+  margin-right: auto;
+
+
+}
+.user-img,.robot-img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 10px;
+}
+.user{
+
+}
 @media only screen and (max-width: 880px) {
   .chat-container {
     width: 100%;
