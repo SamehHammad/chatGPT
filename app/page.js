@@ -4,6 +4,7 @@ import axios from "axios";
 import "./globals.css";
 import Form from "./ui/Form/Form";
 import Loading from "./ui/Loading/Loading";
+import Image from "next/image";
 
 export default function Home() {
   const inputRef = useRef();
@@ -62,10 +63,12 @@ console.log(process.env);
         {reply
           ? messages.map((m, index) => (
               <>
-                <div className="message" key={index}>
+              <div className="message" key={index}>
+                <Image className="user" src={"/user.png"}/>
                   <span>{m.msg}</span>
                 </div>
                 <div className="reply" key={index}>
+                <Image className="user" src={"/robot.jpg"} />
                   <span>{m.rpl}</span>
                 </div>
               </>
