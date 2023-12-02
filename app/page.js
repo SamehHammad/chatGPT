@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 import "./globals.css";
 import Form from "./ui/Form/Form";
 import Loading from "./ui/Loading/Loading";
@@ -22,8 +22,7 @@ export default function Home() {
       };
 
       const headers = {
-        Authorization:
-          "Bearer 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",
+        Authorization: `${process.env.API_KEY}`,
       };
 
       try {
@@ -46,7 +45,7 @@ export default function Home() {
         console.error(err);
       }
     };
-
+console.log(process.env);
     fetchMessage();
   }, [message]);
 
@@ -60,7 +59,7 @@ export default function Home() {
   return (
     <>
       <div className="chat-container">
-        { reply
+        {reply
           ? messages.map((m, index) => (
               <>
                 <div className="message" key={index}>
